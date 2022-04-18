@@ -24,7 +24,7 @@ jobs:
       with:
         login-server: lakycr.azurecr.io
         username: lakycr
-        password: fw=WTlF6kfoUiPRjGGGKJ+CBCkuVhBHF
+        password: secrets.azurepw
     - run: |
         docker build ./cicdtest -f cicdtest/Dockerfile --tag lakycr.azurecr.io/cicdtest
         docker push lakycr.azurecr.io/cicdtest
