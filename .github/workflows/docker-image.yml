@@ -14,5 +14,16 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build ./cicdtest -f cicdtest/Dockerfile --tag my-image-name:$(date +%s)
+#    - name: Build the Docker image
+#      run: docker build ./cicdtest -f cicdtest/Dockerfile --tag lakycr.azurecr.io/cicdtest
+#    - name: Push Docker image
+#      run: docker push lakycr.azurecr.io/cicdtest
+
+    - name: 'Build and push image'
+      uses: azure/docker-login@v1
+      with:
+        login-server: lakycr.azurecr.io
+        username: lakycr
+        password: fw=WTlF6kfoUiPRjGGGKJ+CBCkuVhBHF
+    - run: docker build ./cicdtest -f cicdtest/Dockerfile --tag lakycr.azurecr.io/cicdtest
+        docker push lakycr.azurecr.io/cicdtest
