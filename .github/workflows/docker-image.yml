@@ -13,18 +13,29 @@ jobs:
     #runs-on: ubuntu-latest
     runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v3
+    - name: Docker login
+      uses: docker/login-action@v2.0.0
+      with:
+        registry: azitmentor
+        username: azitmentor
+        password: ${{ secrets.dockerpw }} 
+
 #    - name: Build the Docker image
 #      run: docker build ./cicdtest -f cicdtest/Dockerfile --tag lakycr.azurecr.io/cicdtest
 #    - name: Push Docker image
 #      run: docker push lakycr.azurecr.io/cicdtest
-
-    - name: 'Build and push image'
-      uses: azure/docker-login@v1
-      with:
-        login-server: lakycr.azurecr.io
-        username: lakycr
-        password: ${{ secrets.azurepw }}
-    - run: |
-        docker build ./cicdtest -f cicdtest/Dockerfile --tag lakycr.azurecr.io/cicdtest
-        docker push lakycr.azurecr.io/cicdtest
+#
+#    - name: 'Build and push image'
+#      uses: azure/docker-login@v1
+#      with:
+#        login-server: lakycr.azurecr.io
+#        username: lakycr
+#        password: ${{ secrets.azurepw }}
+#    - run: |
+#        docker build ./cicdtest -f cicdtest/Dockerfile --tag lakycr.azurecr.io/cicdtest
+#        docker push lakycr.azurecr.io/cicdtest
+    - uses: actions/checkout@v3
+    - name: 'build and push'
+    - run:  docker build ./cicdtest -f cicdtest/Dockerfile --tag azitmentor/cicdtest:latest
+    - run:  docker push azitmentor/cicdtest:latest
+      
