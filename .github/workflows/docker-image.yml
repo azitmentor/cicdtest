@@ -33,7 +33,7 @@ jobs:
 #    - run: |
 #        docker build ./cicdtest -f cicdtest/Dockerfile --tag lakycr.azurecr.io/cicdtest
 #        docker push lakycr.azurecr.io/cicdtest
-    - uses: actions/checkout@v3
+#    - uses: actions/checkout@v3
     - name: 'build and push'
       run: |
         docker build ./cicdtest -f cicdtest/Dockerfile --tag azitmentor/cicdtest:latest
