@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Get some code from a GitHub repository
-                checkout scm
+                //checkout scm
             }
         }
         stage('Build image') {
