@@ -9,7 +9,7 @@ pipeline {
 
                 script {
                     docker.withRegistry("https://index.docker.io/v1/","docker") {
-                       def img = docker.build 'azitmentor/sample2','./samplewebapp'
+                       def img = docker.build 'azitmentor/sample2','./cicdtest'
                        img.push()
                     }
                 }
