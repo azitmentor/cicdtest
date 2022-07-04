@@ -11,7 +11,7 @@ pipeline {
         stage('Build image') {
             steps {
                 script {
-                       def img = docker.build 'azitmentor/sample2','./cicdtest'
+                       img = docker.build 'azitmentor/sample2','./cicdtest'
                 }
             }
         }
