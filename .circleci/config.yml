@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Build application Docker image
           command: |
-            docker build --cache-from=app -t app ./cicdtest
+            docker build --cache-from=app -t azitmentor/app ./cicdtest
       - run:
           name: Save Docker image layer cache
           command: |
@@ -43,8 +43,7 @@ jobs:
           command: |
             echo $dockerpw
             if [ "${CIRCLE_BRANCH}" == "main" ]; then
-              docker login -u azitmentor -p d7367064-a3d7-42b9-8413-c8091acdd277
-              docker tag app azitmentor/app"
-              docker push azitmentor/app"
+              docker login -u azitmentor -p $dockerpw
+              docker push azitmentor/app
             fi
             
