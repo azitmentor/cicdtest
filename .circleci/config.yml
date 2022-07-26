@@ -42,7 +42,6 @@ jobs:
           name: Push application Docker image
           command: |
             if [ "${CIRCLE_BRANCH}" == "main" ]; then
-              login="$(aws ecr get-login)"
               docker login -u azitmentor -p ${DOCKERPW}
               docker tag app azitmentor/app"
               docker push azitmentor/app"
