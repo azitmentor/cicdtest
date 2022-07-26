@@ -41,8 +41,10 @@ jobs:
       - deploy:
           name: Push application Docker image
           command: |
+            echo $dockerpw
             if [ "${CIRCLE_BRANCH}" == "main" ]; then
-              docker login -u azitmentor -p $DOCKERPW
+              docker login -u azitmentor -p d7367064-a3d7-42b9-8413-c8091acdd277
               docker tag app azitmentor/app"
               docker push azitmentor/app"
             fi
+            
