@@ -9,6 +9,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.tls.certresolver: le
 spec:
+  ingressClassName: nginx
   rules:
     - host: ku5.ezcal.net
       http:
