@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     #runs-on: self-hosted
     steps:
+    - uses: actions/checkout@v3  
+    
     - name: Docker login
       uses: docker/login-action@v2.0.0
       with:
@@ -44,9 +46,9 @@ jobs:
       run: |
         docker build ./cicdtest -f cicdtest/Dockerfile --tag cicdtest:latest
         docker push cicdtest:latest
-#    - name: Build and push Docker image
-#      uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-#      with:
-#        context: ./cicdtest
-#        push: true
-#        tags: proba
+    - name: Build and push Docker image
+      uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+      with:
+        context: ./cicdtest
+        push: true
+        tags: proba
