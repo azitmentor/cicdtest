@@ -50,9 +50,9 @@ jobs:
     #   run: |
     #     docker build ./cicdtest -f cicdtest/Dockerfile --tag cicdtest:latest
     #     docker push cicdtest:latest
-     - name: 'output variables'
-       run: |
-         echo ${{ steps.meta.outputs }}
+    - name: 'output variables'
+      run: |
+        echo ${{ steps.meta.outputs }}
     - name: Build and push Docker image
       uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
       with:
