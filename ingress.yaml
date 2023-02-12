@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: ku5.ezcal.net
+    - host: ks2.laky.ovh
       http:
         paths:
           - path: /
