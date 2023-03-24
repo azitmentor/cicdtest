@@ -39,6 +39,6 @@ jobs:
       run: |
         docker build ./cicdtest -f cicdtest/Dockerfile --tag azitmentor/cicdtest:latest
         docker push azitmentor/cicdtest:latest
-        docker tag azitmentor/cicdproba
+        docker tag azitmentor/cicdtest:latest azitmentor/cicdproba
         docker push azitmentor/cicdproba
       
